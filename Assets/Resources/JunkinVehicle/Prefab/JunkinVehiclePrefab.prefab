@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 65670030148396470}
   - component: {fileID: 1870334581}
   - component: {fileID: 443800255}
+  - component: {fileID: 2219710091349697472}
   m_Layer: 8
   m_Name: JunkinVehiclePrefab
-  m_TagString: CarHeading
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   isEditorGUI: 0
   keepTabsOpen: 1
   showRunTimeVariablesOnly: 0
+  playerHUD: {fileID: 0}
   vehicle_transform: {fileID: 4941976934902108}
   vehicle_rigidbody: {fileID: 443800255}
   vehicle_heading_transform: {fileID: 4071689955366572}
@@ -120,7 +122,7 @@ MonoBehaviour:
   max_fov_float: 130
   pan_away_float: 10
   pan_toward_float: 30
-  is_MotionBlur: 1
+  is_MotionBlur: 0
   is_grounded: 1
   gravity_float: 0
   max_accel_modified: 0
@@ -187,6 +189,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &2219710091349697472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165680260921162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6961af432ebd0441902cee9440ae92e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDebugMode: 0
+  LapsCompleted: 0
+  LapsTarget: 0
+  IsPlayerFinishedRace: 0
+  currentLegID: 0
+  percentLegComplete: 0
+  playerLegProgress: 0
+  currentLegProgress: 0
+  playerTotalProgress: 0
+  playerLapTime: 0
+  playerRaceTime: 0
 --- !u!1 &1190379883037866
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,14 @@ namespace ModuloKart.HUD
         public Image velocityRadialRed;
         public Image nitrosRadial;
 
+        public GameObject GameOverBackgroundObject;
+        public Text TextGameOver;
+        public Text TextRaceProgress;
+        public Text TextRacePlacement;
+        public Text TextRaceTime;
+        public Text TextLastLapTime;
+        public GameObject WrongDirectionWarning;
+
         private void Start()
         {
             vehicleBehaviors = GameObject.FindObjectsOfType<VehicleBehavior>();

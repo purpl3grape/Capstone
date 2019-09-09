@@ -17,7 +17,7 @@ namespace ModuloKart.PlayerSelectionMenu
     }
     public class PlayerSelectionManager : MonoBehaviour
     {
-        PlayerSelectionManager Instance;
+        public static PlayerSelectionManager Instance;
 
         private GameObject bg_Numplayers1;
         private GameObject bg_Numplayers2;

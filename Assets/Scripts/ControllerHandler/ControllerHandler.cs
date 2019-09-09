@@ -10,8 +10,9 @@ namespace ModuloKart.Controls
 
     public class ControllerHandler : MonoBehaviour
     {
+        public static ControllerHandler Instance;
 
-        [SerializeField] private VehicleBehavior[] vehicles;
+        [SerializeField] public VehicleBehavior[] vehicles;
         [HideInInspector] public VehicleBehavior vehicle1;
         [HideInInspector] public VehicleBehavior vehicle2;
         [HideInInspector] public VehicleBehavior vehicle3;
@@ -26,6 +27,8 @@ namespace ModuloKart.Controls
 
         private void Awake()
         {
+            Instance = this;
+
             if (!GameObject.FindObjectOfType<PlayerSelectionManager>()) {
                 SceneManager.LoadScene(0);    
             }
@@ -106,6 +109,7 @@ namespace ModuloKart.Controls
                     vehicle1.isControllerInitialized = true;
                     AssignedJoyStickNumbers[0] = vehicle1.JoyStick;
 
+                    LapManager.Instance.AddPlayerToScoreList(playerID: vehicle1.PlayerID);
                     assignedControllerCount++;
                 }
             }
@@ -125,6 +129,7 @@ namespace ModuloKart.Controls
                     vehicle2.isControllerInitialized = true;
                     AssignedJoyStickNumbers[1] = vehicle2.JoyStick;
 
+                    LapManager.Instance.AddPlayerToScoreList(playerID: vehicle2.PlayerID);
                     assignedControllerCount++;
                 }
             }
@@ -144,6 +149,7 @@ namespace ModuloKart.Controls
                     vehicle3.isControllerInitialized = true;
                     AssignedJoyStickNumbers[2] = vehicle3.JoyStick;
 
+                    LapManager.Instance.AddPlayerToScoreList(playerID: vehicle3.PlayerID);
                     assignedControllerCount++;
                 }
             }
@@ -163,6 +169,7 @@ namespace ModuloKart.Controls
                     vehicle4.isControllerInitialized = true;
                     AssignedJoyStickNumbers[3] = vehicle4.JoyStick;
 
+                    LapManager.Instance.AddPlayerToScoreList(playerID: vehicle4.PlayerID);
                     assignedControllerCount++;
                 }
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using ModuloKart.HUD;
 
 namespace ModuloKart.CustomVehiclePhysics
 {
@@ -21,6 +22,7 @@ namespace ModuloKart.CustomVehiclePhysics
         public bool isEditorGUI = false;
         public bool keepTabsOpen;
         public bool showRunTimeVariablesOnly;
+        public SimpleUI playerHUD;
         #region Public Variables
         [Header("Vehicle Components")]
         public Transform vehicle_transform;
