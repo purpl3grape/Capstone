@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using ModuloKart.CustomVehiclePhysics;
 using ModuloKart.HUD;
 
@@ -88,7 +89,11 @@ public class VehicleLapData : MonoBehaviour
 
                 vehicleBehavior.playerHUD.TextGameOver.text = "RACE COMPLETED\nWAITING FOR ALL PLAYERS TO FINISH";
 
-                GameLogicManager.Instance.CheckPlayersCompletedRace();
+                GameLogicManager.Instance.SetIsPlayerFinished();
+                if (GameLogicManager.Instance.CheckEveryPlayerFinished())
+                {
+                    SceneManager.LoadScene(0);
+                }
             }
         }
 

@@ -7,32 +7,51 @@ using ModuloKart.Controls;
 public class GameLogicManager : MonoBehaviour
 {
     public static GameLogicManager Instance;
+    public bool arePlayersFinished;
 
-    [HideInInspector] private bool isGameStarted;
-    [HideInInspector] private bool isGameFinished;
+    [HideInInspector] private bool isPlayerStarted;
+    [HideInInspector] private bool isPlayerFinished;
 
-    public bool IsGameStarted { get { return isGameStarted; } set { isGameStarted = value; } }
-    public bool IsGameFinished { get { return isGameFinished; } set { isGameFinished = value; } }
+    public bool IsPlayerStarted { get { return isPlayerStarted; } set { isPlayerStarted = value; } }
+    public bool IsPlayerFinished { get { return isPlayerFinished; } set { isPlayerFinished = value; } }
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void CheckPlayersCompletedRace()
+    public void SetIsPlayerFinished()
     {
         foreach (VehicleBehavior flickballarenaPlayer in ControllerHandler.Instance.vehicles)
         {
             if (flickballarenaPlayer.isControllerInitialized)
             {
-                if (flickballarenaPlayer.GetComponent<VehicleLapData >().IsPlayerFinishedRace == false)
+                if (flickballarenaPlayer.GetComponent<VehicleLapData>().IsPlayerFinishedRace == false)
                 {
                     return;
                 }
             }
         }
-        IsGameFinished = true;
+        IsPlayerFinished = true;
         Debug.Log("ALL " + LapManager.Instance.playerLapDataList.Count + " PLAYERS HAVE COMPLETED THE RACE");
     }
 
+
+    public bool CheckEveryPlayerFinished()
+    {
+        foreach (VehicleBehavior v in ControllerHandler.Instance.vehicles)
+        {
+            if (v.isControllerInitialized)
+            {
+                if (!v.GetComponent<VehicleLapData>().IsPlayerFinishedRace)
+                {
+                    arePlayersFinished = false;
+                    return arePlayersFinished;
+                }
+            }
+
+        }
+        arePlayersFinished = true;
+        return arePlayersFinished;
+    }
 }
